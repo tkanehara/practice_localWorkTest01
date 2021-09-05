@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja" xml:lang="ja" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" type="text/css" href="article.css">
+  <link href="http://fonts.googleapis.com/earlyaccess/notosansjp.css">
+  <link href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+</head>
+<body id="Articles_index">
+
+<div class="wrap">
+
+  <div class="columnHead_area" style="background: url(mv.jpg) no-repeat center center; background-size: cover;">
+    <div class="head_container">
+      <ul class="articleTag">
+        <li><a href="">SaaS</a></li>
+        <li><a href="">外資系企業</a></li>
+        <li><a href="">セールスインターン</a></li>
+      </ul>
+      <div class="heroImage_block">
+        <span class="parentCategory_block">長期インターンシップ</span>
+        <img src="mv.jpg" alt="見出しタイトルが入ります" id="file-preview">
+      </div>
+      <div class="addStatus_block unit">  
+        <div class="statusLeft_part">
+          <div class="date_item">June. 09, 2021, 8:00 PM </div>
+          <div class="view_item"><span>102</span>VIEW</div>
+        </div><!-- /statusRight_part -->
+        <div class="statusRight_part">
+          <ul class="snsIcon_item">
+            <li class="twitter"><a href=""><img src="article/snsIcon_twitter.png" alt="twitter"></a></li>
+            <li class="facebook"><a href=""><img src="article/snsIcon_facebook.png" alt="facebook"></a></li>
+            <li class="hatebu"><a href=""><img src="article/snsIcon_hatebu.png" alt="hatebu"></a></li>
+            <li class="LINE"><a href=""><img src="article/snsIcon_line.png" alt="line"></a></li>
+          </ul>
+        </div><!-- /statusRight_part -->
+      </div><!-- addStatus_block -->
+    </div><!-- /head_container -->
+  </div><!-- /columnHead_area -->
+
+  <div class="columnBody_container">
+    <article class="column_wrap">
+      <section class="prologue_section">
+        <h1>インターンシップは何社参加すればいいの？</h1>
+        <p class="headingLede_block">株式会社やまだ　グループマネージャー　井岡和哉氏と対談</p>
+        <!-- <div class="startingSentence_block">
+          <p>将来的な就職活動を見据えて、就職先や業界をリサーチできるインターンシップは学生にとって非常に有効です。でも初めてのインターンシップは何社程度参加すればいいのか？と疑問もあるでしょう。平均的な参加数や参加するメリットを踏まえ、目安について解説いたします。
+          </p>
+        </div> -->
+      </section><!-- /prologue_section -->
+
+
+      <!-- <section>
+        <h2>大学3年夏休み明け時点で1～3社程度の学生が多い</h2>
+        <div class="sentence_block">
+          <p>2017年度マイナビ大学生インターンシップ調査によると1社36.8％、2社24.7％、3社16.0％となっており、多くの学生が夏休み明け時点で1～3社程度参加しています。なかには、4社、5社、6社と多く参加している学生もいますがそれぞれ1割にも満たない割合です。秋以降に参加する会社を含めるともう少し増え、最終的に3～4社という学生が一般的です。
+          </p>
+        </div>
+      </section> -->
+
+    </article><!-- /column_wrap -->
+
+  </div><!-- /columnBody_container -->
+  <div class="upload_block">
+    <form method="post" action="" enctype="multipart/form-data">
+      <div class="changeText_block">
+        <p><span>H1変更</span><input type="text" class="changeH1"><a href="javascript:void(0);" class="changeH1_btn">変更</a></p>
+        <p><span>小見出し変更</span><input type="text" class="changeSubHeading"><a href="javascript:void(0);" class="changeSubHeading_btn">変更</a></p>
+      </div>
+      <label for="file_sample">
+    ＋ 写真を選択
+        <input id="file_sample" type="file">
+      </label>
+    </form>
+  </div>
+</div><!-- /wrap -->
+<script type="text/javascript">
+$(function() {
+    document.getElementById('file_sample').addEventListener('change', function (e) {
+        // 1枚だけ表示する
+        var file = e.target.files[0];
+
+        // ファイルのブラウザ上でのURLを取得する
+        var blobUrl = window.URL.createObjectURL(file);
+
+        // img要素に表示
+        var img = document.getElementById('file-preview');
+        img.src = blobUrl;
+        $('.columnHead_area').css({
+            'background': 'url("'+ blobUrl +'") no-repeat center center',
+            'background-size': 'cover',
+            'backdrop-filter': 'blur(20px)',
+            '-webkit-backdrop-filter': 'blur(20px)'
+        });
+    });
+    $('.changeH1_btn').on('click', function() {
+      let h1Text = $(this).prev('input').val();
+      $('.prologue_section h1').text(h1Text);
+        
+    });
+    $('.changeSubHeading_btn').on('click', function() {
+      let SubHeadingText = $(this).prev('input').val();
+      $('.headingLede_block').text(SubHeadingText);
+    });
+});
+
+</script>
+</body>
+</html>
